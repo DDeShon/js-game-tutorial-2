@@ -16,7 +16,7 @@ const backgroundLayer5 = new Image();
 backgroundLayer5.src = "layer-5.png";
 
 function animate() {
-  ctx.drawImage(backgroundLayer2, 0, 0);
+  ctx.drawImage(backgroundLayer1, 0, 0);
   requestAnimationFrame(animate);
 }
 animate();
