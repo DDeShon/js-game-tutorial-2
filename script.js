@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = 800);
 const CANVAS_HEIGHT = (canvas.height = 700);
 let gameSpeed = 4;
-let gameFrame = 0;
+// let gameFrame = 0;
 
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = "layer-1.png";
@@ -37,11 +37,11 @@ class Layer {
   }
   update() {
     this.speed = gameSpeed * this.speedModifier;
-    // if (this.x <= -this.width) {
-    //   this.x = 0;
-    // }
-    // this.x = this.x - this.speed;
-    this.x = (gameFrame * this.speed) % this.width;
+    if (this.x <= -this.width) {
+      this.x = 0;
+    }
+    this.x = this.x - this.speed;
+    // this.x = (gameFrame * this.speed) % this.width;
   }
   draw() {
     ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
@@ -69,7 +69,7 @@ function animate() {
     object.update();
     object.draw();
   });
-  gameFrame--;
+  //   gameFrame--;
   requestAnimationFrame(animate);
 }
 animate();
